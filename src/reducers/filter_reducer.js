@@ -34,49 +34,51 @@ const filter_reducer = (state, action) => {
     }
     return { ...state, filtered_products: tempProduct }
   }
-  // if (action.type === UPDATE_FILTERS) {
-  //   const { name, value } = action.payload
-  //   return { ...state, filters: { ...state.filters, [name]: value } }
-  // }
-  // if (action.type === FILTER_PRODUCTS) {
-  //   const { all_products } = state
-  //   const { text, category, company, color, price, shipping } = state.filters
 
-  //   let tempProduct = [...all_products]
-  //   //text
-  //   if (text) {
-  //     tempProduct = tempProduct.filter((product) => {
-  //       return product.name.toLowerCase().startsWith(text)
-  //     })
-  //   }
-  //   //category
-  //   if (category !== 'all') {
-  //     tempProduct = tempProduct.filter(
-  //       (product) => product.category === category
-  //     )
-  //   }
+  if (action.type === 'UPDATE_FILTERS') {
+    const { name, value } = action.payload
+    return { ...state, filters: { ...state.filters, [name]: value } }
+  }
 
-  //   //company
-  //   if (company !== 'all') {
-  //     tempProduct = tempProduct.filter((product) => product.company === company)
-  //   }
+  if (action.type === 'FILTER_PRODUCTS') {
+    const { all_products } = state
+    const { text, category, company, color, price, shipping } = state.filters
 
-  //   //colors
-  //   if (color !== 'all') {
-  //     tempProduct = tempProduct.filter((product) => {
-  //       return product.colors.find((c) => c === color)
-  //     })
-  //   }
-  //   //price
-  //   tempProduct = tempProduct.filter((product) => product.price <= price)
+    let tempProduct = [...all_products]
+    //text
+    if (text) {
+      tempProduct = tempProduct.filter((product) => {
+        return product.name.toLowerCase().startsWith(text.toLowerCase())
+      })
+    }
+    // //category
+    // if (category !== 'all') {
+    //   tempProduct = tempProduct.filter(
+    //     (product) => product.category === category
+    //   )
+    // }
 
-  //   //shipping
-  //   if (shipping) {
-  //     tempProduct = tempProduct.filter((product) => product.shipping === true)
-  //   }
+    // //company
+    // if (company !== 'all') {
+    //   tempProduct = tempProduct.filter((product) => product.company === company)
+    // }
 
-  //   return { ...state, filtered_products: tempProduct }
-  // }
+    // //colors
+    // if (color !== 'all') {
+    //   tempProduct = tempProduct.filter((product) => {
+    //     return product.colors.find((c) => c === color)
+    //   })
+    // }
+    // //price
+    // tempProduct = tempProduct.filter((product) => product.price <= price)
+
+    // //shipping
+    // if (shipping) {
+    //   tempProduct = tempProduct.filter((product) => product.shipping === true)
+    // }
+
+    return { ...state, filtered_products: tempProduct }
+  }
 
   // if (action.type === CLEAR_FILTERS) {
   //   return {
