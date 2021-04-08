@@ -36,7 +36,7 @@ const Footer = () => {
             </div>
             <h6>hotline : </h6>
           </div>
-          <p>+8801929459195 (10am-10pm/Sat-Thur)</p>
+          <p className='p'>+8801929459195 (10am-10pm/Sat-Thur)</p>
 
           <div className='header'>
             <div className='imgcontainer'>
@@ -44,7 +44,7 @@ const Footer = () => {
             </div>
             <h6>Whole Sales : </h6>
           </div>
-          <p>01929459195 (10am-12pm)</p>
+          <p className='p'>01929459195 (10am-12pm)</p>
 
           <div className='header'>
             <div className='imgcontainer'>
@@ -52,7 +52,7 @@ const Footer = () => {
             </div>
             <h6>Email :</h6>
           </div>
-          <p>support.example@gmail.com</p>
+          <p className='p'>support.example@gmail.com</p>
         </div>
       </div>
     </Wrapper>
@@ -95,7 +95,7 @@ const Wrapper = styled.footer`
     align-items: center;
     margin-top: 1rem;
   }
-  p {
+  .p {
     font-size: 13px;
     padding-left: 1.5rem;
   }
