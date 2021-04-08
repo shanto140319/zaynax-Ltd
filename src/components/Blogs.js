@@ -75,7 +75,7 @@ const Wrapper = styled.div`
     color: #fff;
     font-weight: 400;
     font-size: 12px;
-    background: #1dbf73;
+    background: var(--clr-green);
     padding: 0.3rem;
     border-radius: 2px;
   }
@@ -95,11 +95,11 @@ const Wrapper = styled.div`
     margin-right: 7rem;
   }
   .rec-arrow {
-    background: #1dbf73;
+    background: var(--clr-green);
     color: #fff;
   }
   .rec-arrow:hover {
-    background: #1dbf73;
+    background: var(--clr-green);
   }
   .rec-dot {
     height: 7px;
@@ -107,7 +107,7 @@ const Wrapper = styled.div`
   }
 
   .rec-dot_active {
-    background: #1dbf73;
+    background: var(--clr-green);
   }
 `
 export default Blogs

@@ -10,6 +10,7 @@ const products_reducer = (state, action) => {
   }
 
   if (action.type === 'PREV_PAGE') {
+    window.scrollTo(0, 0)
     const { data } = state
     if (action.payload < 0) {
       action.payload = data.length - 1
@@ -18,6 +19,7 @@ const products_reducer = (state, action) => {
   }
 
   if (action.type === 'NEXT_PAGE') {
+    window.scrollTo(0, 0)
     const { data } = state
     if (action.payload > data.length - 1) {
       action.payload = 0

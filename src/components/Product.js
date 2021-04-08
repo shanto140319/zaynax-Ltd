@@ -81,12 +81,12 @@ const Wrapper = styled.div`
     outline: none;
   }
   .active-btn {
-    background: var(--clr-green-dark);
+    background: var(--clr-green);
     color: #fff;
   }
   .prev-btn,
   .next-btn {
-    color: var(--clr-green-dark);
+    color: var(--clr-green);
     text-transform: capitalize;
     font-weight: 700;
   }
