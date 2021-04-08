@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useReducer } from 'react'
-// import reducer from '../reducers/filter_reducer'
+
 import reducer from '../reducers/filter_reducer'
 
 import { useProductsContext } from './productContext'
@@ -10,8 +10,11 @@ const initialState = {
   sort: 'price-lowest',
   filters: {
     text: '',
-    company: 'all',
+    brand: 'all',
+    brand_search: '',
     category: 'all',
+    country: 'all',
+    size: 'all',
     color: 'all',
     min_price: 0,
     max_price: 0,
@@ -40,15 +43,26 @@ export const FilterProvider = ({ children }) => {
     const value = e.target.value
     dispatch({ type: 'UPDATE_SORT', payload: value })
   }
+
   const updateFilters = (e) => {
     let name = e.target.name
     let value = e.target.value
-    // if (name === 'category') {
-    //   value = e.target.textContent
-    // }
-    // if (name === 'color') {
-    //   value = e.target.dataset.type
-    // }
+    if (name === 'category') {
+      value = e.target.textContent
+    }
+    if (name === 'brand') {
+      value = e.target.textContent
+    }
+    if (name === 'country') {
+      value = e.target.textContent
+    }
+    if (name === 'size') {
+      value = e.target.dataset.type
+    }
+
+    if (name === 'color') {
+      value = e.target.dataset.type
+    }
     // if (name === 'price') {
     //   value = Number(value)
     // }

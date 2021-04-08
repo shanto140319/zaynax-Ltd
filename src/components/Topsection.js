@@ -4,6 +4,7 @@ import { useFilterContext } from '../context/filterContext'
 import { useProductsContext } from '../context/productContext'
 import { products as AllProduct } from '../data'
 import { BiSearch } from 'react-icons/bi'
+
 const Topsection = () => {
   const { products } = useProductsContext()
   const [ShowedSerial, setShowedSerial] = useState({})

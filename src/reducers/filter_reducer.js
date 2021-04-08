@@ -13,6 +13,7 @@ const filter_reducer = (state, action) => {
   if (action.type === 'UPDATE_SORT') {
     return { ...state, sort: action.payload }
   }
+
   if (action.type === 'SORT_PRODUCTS') {
     const { sort, filtered_products } = state
     let tempProduct = [...filtered_products]
@@ -42,33 +43,60 @@ const filter_reducer = (state, action) => {
 
   if (action.type === 'FILTER_PRODUCTS') {
     const { all_products } = state
-    const { text, category, company, color, price, shipping } = state.filters
+    const {
+      text,
+      category,
+      brand,
+      brand_search,
+      country,
+      size,
+      color,
+      price,
+      shipping,
+    } = state.filters
 
     let tempProduct = [...all_products]
     //text
     if (text) {
       tempProduct = tempProduct.filter((product) => {
-        return product.name.toLowerCase().startsWith(text.toLowerCase())
+        return product.name.toLowerCase().includes(text.toLowerCase())
       })
     }
-    // //category
-    // if (category !== 'all') {
-    //   tempProduct = tempProduct.filter(
-    //     (product) => product.category === category
-    //   )
-    // }
+    //category
+    if (category !== 'all') {
+      tempProduct = tempProduct.filter(
+        (product) => product.category === category
+      )
+    }
 
-    // //company
-    // if (company !== 'all') {
-    //   tempProduct = tempProduct.filter((product) => product.company === company)
-    // }
+    //Brand
+    if (brand !== 'all') {
+      tempProduct = tempProduct.filter((product) => product.brand === brand)
+    }
+    if (brand_search) {
+      tempProduct = tempProduct.filter((product) => {
+        return product.brand.toLowerCase().includes(brand_search.toLowerCase())
+      })
+    }
 
-    // //colors
-    // if (color !== 'all') {
-    //   tempProduct = tempProduct.filter((product) => {
-    //     return product.colors.find((c) => c === color)
-    //   })
-    // }
+    //Country
+    if (country !== 'all') {
+      tempProduct = tempProduct.filter((product) => product.country === country)
+    }
+
+    //size
+    if (size !== 'all') {
+      tempProduct = tempProduct.filter((product) => {
+        return product.size.find((c) => c === size)
+      })
+    }
+
+    //colors
+    if (color !== 'all') {
+      tempProduct = tempProduct.filter((product) => {
+        return product.colors.find((c) => c === color)
+      })
+    }
     // //price
     // tempProduct = tempProduct.filter((product) => product.price <= price)
 
