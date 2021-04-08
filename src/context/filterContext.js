@@ -63,9 +63,10 @@ export const FilterProvider = ({ children }) => {
     if (name === 'color') {
       value = e.target.dataset.type
     }
-    // if (name === 'price') {
-    //   value = Number(value)
-    // }
+    if (name === 'price') {
+      value = Number(value)
+    }
+
     // if (name === 'shipping') {
     //   value = e.target.checked
     // }

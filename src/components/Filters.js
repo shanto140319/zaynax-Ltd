@@ -26,7 +26,8 @@ const Filters = () => {
   const sizes = getUniqueValues(all_products, 'size')
   // colors
   const colors = getUniqueValues(all_products, 'colors')
-
+  //febrics
+  const febrices = getUniqueValues(all_products, 'febric')
   return (
     <Wrapper>
       <ul>
@@ -58,7 +59,7 @@ const Filters = () => {
           <Ratings />
         </li>
         <li>
-          <Febrics />
+          <Febrics febrices={febrices} />
         </li>
         <li>
           <Patterns />

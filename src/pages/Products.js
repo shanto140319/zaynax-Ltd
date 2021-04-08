@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import Blogs from '../components/Blogs'
 import Filters from '../components/Filters'
 import Product from '../components/Product'
+import Services from '../components/Services'
 import Topsection from '../components/Topsection'
 
 const Products = () => {
@@ -11,9 +13,11 @@ const Products = () => {
       <Topsection />
       <hr />
       <div className='wrapper section'>
-        <Filters />
-        <Product />
+        <Filters className='1' />
+        <Product className='2' />
       </div>
+      <Blogs />
+      <Services />
     </Wrapper>
   )
 }
