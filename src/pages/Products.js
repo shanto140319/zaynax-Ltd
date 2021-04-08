@@ -20,6 +20,7 @@ const Products = () => {
 const Wrapper = styled.section`
   .wrapper {
     display: grid;
+    row-gap: 2rem;
     @media (min-width: 600px) {
       grid-template-columns: 250px 1fr;
     }

@@ -108,20 +108,22 @@ const filter_reducer = (state, action) => {
     return { ...state, filtered_products: tempProduct }
   }
 
-  // if (action.type === CLEAR_FILTERS) {
-  //   return {
-  //     ...state,
-  //     filters: {
-  //       ...state.filters,
-  //       text: '',
-  //       company: 'all',
-  //       category: 'all',
-  //       color: 'all',
-  //       price: state.filters.max_price,
-  //       shipping: false,
-  //     },
-  //   }
-  // }
+  if (action.type === 'CLEAR_FILTERS') {
+    return {
+      ...state,
+      filters: {
+        ...state.filters,
+        brand: 'all',
+        brand_search: '',
+        category: 'all',
+        country: 'all',
+        size: 'all',
+        color: 'all',
+        price: state.filters.max_price,
+        shipping: false,
+      },
+    }
+  }
 
   throw new Error(`No Matching "${action.type}" - action type`)
 }

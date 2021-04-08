@@ -5,7 +5,7 @@ const products_reducer = (state, action) => {
   }
 
   if (action.type === 'HANDLE_PAGE') {
-    const { page } = state
+    window.scrollTo(0, 0)
     return { ...state, page: action.payload }
   }
 
