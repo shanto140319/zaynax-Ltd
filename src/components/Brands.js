@@ -1,18 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useFilterContext } from '../context/filterContext'
 import { BiSearch } from 'react-icons/bi'
-import { BsCircle } from 'react-icons/bs'
+import { AiOutlineDown } from 'react-icons/ai'
 
 const Brands = ({ brands }) => {
+  const [show, setShow] = useState(true)
   const {
     filters: { brand, brand_search },
     updateFilters,
   } = useFilterContext()
   return (
     <Wrapper>
-      <div>
+      <div className='header'>
         <h5>Brand</h5>
+        <AiOutlineDown onClick={() => setShow(!show)} />
+      </div>
+
+      <div className={`${!show ? 'hide' : null}`}>
         <form onSubmit={(e) => e.preventDefault()}>
           {/* search */}
           <div className='form-control'>
@@ -65,6 +70,21 @@ const Wrapper = styled.div`
   }
   button:focus {
     outline: none;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.3rem;
+  }
+  .header svg {
+    cursor: pointer;
+  }
+
+  .hide {
+    height: 0;
+    visibility: hidden;
+    transition: height 2s;
   }
   .active {
     color: var(--clr-black);

@@ -77,5 +77,8 @@ const Wrapper = styled.section`
     padding: 1rem;
     border-bottom: 1px dashed #222;
   }
+  ul li:last-child {
+    border-bottom: none;
+  }
 `
 export default Filters

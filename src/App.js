@@ -8,7 +8,7 @@ import Footer from './components/footer/Footer'
 function App() {
   return (
     <Router>
-      <Navbar></Navbar>
+      <Navbar />
       <Switch>
         <Route exact path='/'>
           <Home />

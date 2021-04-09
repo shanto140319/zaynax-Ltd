@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useFilterContext } from '../context/filterContext'
+import { AiOutlineDown } from 'react-icons/ai'
 
 const Categorys = ({ categories }) => {
+  const [show, setShow] = useState(true)
+
   const {
     filters: { category },
     updateFilters,
@@ -10,8 +13,11 @@ const Categorys = ({ categories }) => {
   return (
     <Wrapper>
       <div className='formControl'>
-        <h5>category</h5>
-        <div>
+        <div className='header'>
+          <h5>category</h5>
+          <AiOutlineDown onClick={() => setShow(!show)} />
+        </div>
+        <div className={`${!show ? 'hide' : null}`}>
           {categories.map((c, index) => {
             return (
               <button
@@ -33,6 +39,18 @@ const Categorys = ({ categories }) => {
   )
 }
 const Wrapper = styled.div`
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .header svg {
+    cursor: pointer;
+  }
+  .hide {
+    height: 0;
+    visibility: hidden;
+    transition: height 2s;
+  }
   button {
     display: block;
     margin: 0.25em 0;
