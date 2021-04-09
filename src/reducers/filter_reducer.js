@@ -100,14 +100,10 @@ const filter_reducer = (state, action) => {
     //price
     tempProduct = tempProduct.filter((product) => product.price <= price)
 
-    // //shipping
-    // if (shipping) {
-    //   tempProduct = tempProduct.filter((product) => product.shipping === true)
-    // }
-
     return { ...state, filtered_products: tempProduct }
   }
 
+  //clear all filters
   if (action.type === 'CLEAR_FILTERS') {
     return {
       ...state,
